@@ -282,3 +282,5 @@ pip-selfcheck.json
 instagram_clone/media/
 
 .pytest_cache/
+
+.idea/
