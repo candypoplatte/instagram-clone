@@ -1,4 +1,6 @@
 from rest_framework import serializers
+
+from instagram_clone.users.models import User
 from . import models
 
 
@@ -14,9 +16,19 @@ class LikeSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class FeedUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = (
+            'username',
+            'profile_image',
+        )
+
+
 class ImageSerializer(serializers.ModelSerializer):
     comments = CommentSerializer(many=True)
     likes = LikeSerializer(many=True)
+    creator = FeedUserSerializer()
 
     class Meta:
         model = models.Image
