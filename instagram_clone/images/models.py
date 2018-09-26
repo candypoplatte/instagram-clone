@@ -18,7 +18,7 @@ class Image(TimeStampedModel):
     file = models.ImageField()
     location = models.CharField(max_length=140)
     caption = models.TextField()
-    creator = models.ForeignKey(User, null=True, on_delete=SET_NULL)
+    creator = models.ForeignKey(User, null=True, on_delete=SET_NULL, related_name='images')
 
     def __str__(self):
         return f'{self.location} -{self.caption}'

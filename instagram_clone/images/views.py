@@ -1,26 +1,19 @@
-from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework.views import APIView
 
-from instagram_clone.images.models import Image, Comment, Like
 from instagram_clone.images import serializers
 
 
-class ListAllImages(APIView):
+class Feed(APIView):
     def get(self, request, format=None):
-        all_images = Image.objects.all()
-        serializer = serializers.ImageSerializer(all_images, many=True)
-        return Response(data=serializer.data)
+        user = request.user
+        following_users = user.following.all()
 
+        images = []
+        for following_user in following_users:
+            following_user_images = following_user.images.all()[:2]
+            images += following_user_images
 
-class ListAllComments(APIView):
-    def get(self, request, format=None):
-        all_comments = Comment.objects.all()
-        serializer = serializers.CommentSerializer(all_comments, many=True)
-        return Response(data=serializer.data)
-
-
-class ListAllLikes(APIView):
-    def get(self, request, format=None):
-        all_likes = Like.objects.all()
-        serializer = serializers.LikeSerializer(all_likes, many=True)
+        sorted_images = sorted(images, key=lambda image: image.created, reverse=True)
+        serializer = serializers.ImageSerializer(sorted_images, many=True)
         return Response(data=serializer.data)
