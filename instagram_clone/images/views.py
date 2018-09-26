@@ -1,3 +1,4 @@
+from rest_framework import status
 from rest_framework.generics import get_object_or_404
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -24,12 +25,12 @@ class Feed(APIView):
 class LikeImage(APIView):
     def post(self, request, image_id, format=None):
         user = request.user
-        image = get_object_or_404(
-            Image,
-            pk=image_id
-        )
-        Like.objects.create(
-            creator=user,
-            image=image
-        )
-        return Response(status=201)
+        image = get_object_or_404(Image, pk=image_id)
+        # Create / Delete Like
+        try:
+            pre_existing_like = Like.objects.get(creator=user, image=image)
+            pre_existing_like.delete()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        except Like.DoesNotExist:
+            Like.objects.create(creator=user, image=image)
+            return Response(status=status.HTTP_201_CREATED)
