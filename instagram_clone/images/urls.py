@@ -9,4 +9,14 @@ urlpatterns = [
         view=views.ListAllImages.as_view(),
         name="all-images"
     ),
+    path(
+        route='comments/',
+        view=views.ListAllComments.as_view(),
+        name="all-comments"
+    ),
+    path(
+        route='likes/',
+        view=views.ListAllLikes.as_view(),
+        name="all-likes"
+    ),
 ]
