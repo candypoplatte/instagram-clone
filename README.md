@@ -11,10 +11,15 @@ Django와 React를 활용하여 Instagram을 그대로 구현해보는 프로젝
 - **Editor** : Visual Studio Code
 - **Database** : PostgreSQL
   - (DB Client) Postico
-- **Frontend Development** : NodeJS
-  - (Package Manager) yarn
-- **Backend Development** : Python 3
-  - (Virtual Environment Manager) pyenv / pyenv-virtualenv
+- **Frontend Development**
+  - Language : Javascript
+  - Library : React
+  - Platform : NodeJS
+  - Package Manager : yarn
+- **Backend Development**
+  - Language : Python 3
+  - Framework : Django
+  - Virtual Environment Manager : pyenv / pyenv-virtualenv
 
 ## Tips
 
