@@ -6,18 +6,18 @@ Django와 React를 활용하여 Instagram을 그대로 구현해보는 프로젝
 
 ## 개발 환경
 
-- OS : macOS High Sierra 10.13.6
-- Editor : Visual Studio Code
-- Database : PostgresSQL
+- **OS** : macOS High Sierra 10.13.6
+- **Editor** : Visual Studio Code
+- **Database** : PostgresSQL
   - (DB Client) Postico
-- Frontend Development : NodeJS
+- **Frontend Development** : NodeJS
   - (Package Manager) yarn
-- Backend Development : Python 3
+- **Backend Development** : Python 3
   - (Virtual Environment Manager) pyenv / pyenv-virtualenv
 
 ## Tips
 
-- VS Code Extensions
+- **VS Code** Extensions
   - Sublime Text Keymap
   - React Extension Pack
   - Prettier Javascript Formater
