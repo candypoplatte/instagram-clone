@@ -9,4 +9,9 @@ urlpatterns = [
         view=views.Feed.as_view(),
         name="feeds"
     ),
+    path(
+        route='<int:image_id>/like',
+        view=views.LikeImage.as_view(),
+        name="like-image"
+    ),
 ]
