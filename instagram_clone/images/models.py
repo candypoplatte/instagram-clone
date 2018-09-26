@@ -23,6 +23,9 @@ class Image(TimeStampedModel):
     def __str__(self):
         return f'{self.location} -{self.caption}'
 
+    class Meta:
+        ordering = ['-created']
+
 
 class Comment(TimeStampedModel):
     """Comment Model"""
