@@ -19,6 +19,10 @@ urlpatterns = [
         "users/",
         include("instagram_clone.users.urls", namespace="users"),
     ),
+    path(
+        "images/",
+        include("instagram_clone.images.urls", namespace="images"),
+    ),
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
 ] + static(
