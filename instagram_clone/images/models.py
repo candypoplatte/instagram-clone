@@ -33,3 +33,4 @@ class Like(TimeStampedModel):
     """Like Model"""
 
     creator = models.ForeignKey(User, null=True, on_delete=SET_NULL)
+    image = models.ForeignKey(Image, null=True, on_delete=SET_NULL)
